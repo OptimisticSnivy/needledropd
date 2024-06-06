@@ -1,4 +1,9 @@
+<script>
+	import Navbar from "$lib/navbar.svelte";
+</script>
+
 <div id="title">Hello from about</div>
+<Navbar />
 
 <style>
 	:global(body) {
@@ -11,7 +16,7 @@
 	}
 
 	#title {
-		margin: 30px;
+		margin: 20px;
 		font-size: 50px;
 	}
 </style>

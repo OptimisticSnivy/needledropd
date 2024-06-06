@@ -1,11 +1,10 @@
+<script>
+	import Navbar from "$lib/navbar.svelte";
+</script>
+
 <div id="title">needledropd.</div>
-<div id="nav">
-	<nav>
-		<a href="/">Home</a>
-		<a href="/profile">Profile</a>
-		<a href="/about">About</a>
-	</nav>
-</div>
+<Navbar />
+<div class="album_grid"></div>
 
 <style>
 	:global(body) {
@@ -17,19 +16,12 @@
 		justify-content: center;
 	}
 
-	a {
-		margin: 5px;
-		color: paleturquoise;
-		text-decoration: none;
-	}
-
 	#title {
 		margin: 20px;
 		font-size: 50px;
 	}
 
-	#nav {
-		margin: 20px;
-		font-size: 18px;
+	.album_grid {
+		display: grid;
 	}
 </style>

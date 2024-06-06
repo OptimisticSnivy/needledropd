@@ -1,4 +1,9 @@
+<script>
+	import Navbar from "$lib/navbar.svelte";
+</script>
+
 <div id="title">Hello from Profile</div>
+<Navbar />
 
 <style>
 	:global(body) {
