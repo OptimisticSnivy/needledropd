@@ -1,9 +1,15 @@
 <script>
-	// script to pull reccos. from the API.
+export let searchTerm;
 </script>
 
 <div id="bar">
-	<input id="searchfield" type="text" placeholder="Search" />
+	<input
+		id="searchfield"
+		type="text"
+		placeholder="Search"
+		bind:value={searchTerm}
+		on:input
+	/>
 </div>
 
 <style>
@@ -13,7 +19,7 @@
 		width: 20%;
 		border: 2px paleturquoise solid;
 		border-radius: 5px;
-		margin: 15px 20px;
+		margin: 8px 20px;
 		padding: 5px;
 		font-style: italic;
 		font-size: 14px;

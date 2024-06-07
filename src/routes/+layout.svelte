@@ -1,9 +1,11 @@
 <script>
 	import Navbar from "$lib/navbar.svelte";
+	import Searchbar from "$lib/searchbar.svelte";
 </script>
 
 <slot />
 <Navbar />
+<Searchbar />
 
 <style>
 	:global(body) {
