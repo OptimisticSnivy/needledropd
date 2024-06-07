@@ -1,8 +1,10 @@
 <script>
+	import Searchbar from "../lib/searchbar.svelte";
 </script>
 
 <div id="title">needledropd.</div>
 <div class="album_grid"></div>
+<Searchbar />
 
 <style>
 	#title {
