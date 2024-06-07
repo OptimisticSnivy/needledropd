@@ -1,10 +1,10 @@
 <script>
-export let searchTerm;
+	export let searchTerm;
 </script>
 
 <div id="bar">
 	<input
-		id="searchfield"
+		id="searchField"
 		type="text"
 		placeholder="Search"
 		bind:value={searchTerm}
@@ -13,15 +13,16 @@ export let searchTerm;
 </div>
 
 <style>
-	#searchfield {
+	#searchField {
 		background-color: #1f2937;
 		color: paleturquoise;
-		width: 20%;
+		width: 16%;
 		border: 2px paleturquoise solid;
-		border-radius: 5px;
-		margin: 8px 20px;
-		padding: 5px;
+		border-radius: 14px;
+		margin: 5px 20px;
+		padding: 8px;
 		font-style: italic;
 		font-size: 14px;
+		outline: none;
 	}
 </style>
