@@ -3,9 +3,9 @@
 	import Searchbar from "$lib/searchbar.svelte";
 </script>
 
-<slot />
 <Navbar />
 <Searchbar />
+<slot />
 
 <style>
 	:global(body) {

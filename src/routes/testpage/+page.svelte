@@ -2,7 +2,6 @@
 	import Albumcard from "../../lib/albumcard.svelte";
 </script>
 
-<slot />
 <div id="title">testpage.</div>
 <div class="cards">
 	<Albumcard />
