@@ -1,8 +1,10 @@
 <script>
 	import { onMount } from "svelte";
 
-	let url, desc, imgsrc, aname, artist;
-	let search = [];
+	let url, desc, imgsrc, aname, artist, res;
+	export let searchArr = [];
+	export let ANAME;
+	export let ARTIST;
 
 	async function getAlbumInfo(ARTIST, ANAME) {
 		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb";
@@ -18,17 +20,24 @@
 	async function albumSearch(ANAME) {
 		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb";
 		const response = await fetch(
-			`http://ws.audioscrobbler.com/2.0/?method=album.search&album=${ANAME}&api_key=bf0006fdbb2fe14addcc6f11a07025eb&format=json`,
+			`http://ws.audioscrobbler.com/2.0/?method=album.search&album=${ANAME}&api_key=${API_KEY}&format=json`,
 		);
+
 		const data = await response.json();
-		console.log(data);
+
+		for (let i = 0; i < 10; i++) {
+			let searchRes = [];
+			res = data.results.albummatches.album[i];
+			// searchRes.push(res);
+			searchRes.push(res.name);
+			searchRes.push(res.artist);
+			searchArr.push(searchRes);
+		}
 	}
 
 	onMount(() => {
-		const ANAME = "Plastic Beach";
-		const ARTIST = "Gorillaz";
-		albumSearch(ANAME);
 		getAlbumInfo(ARTIST, ANAME);
+		// albumSearch(ANAME);
 	});
 </script>
 
