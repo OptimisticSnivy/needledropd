@@ -1,9 +1,11 @@
 <script>
 	import { onMount } from "svelte";
-	import Albumcard from "../../lib/albumcard.svelte";
 	import { writable } from "svelte/store";
+	import Albumcard from "$lib/albumcard.svelte";
+	import Searchbar from "$lib/searchbar.svelte";
 
 	let searchArr = writable([]);
+	let searchTerm = ""; // ANAME was removed!
 	let res;
 
 	async function albumSearch(ANAME) {
@@ -25,17 +27,13 @@
 		}
 		searchArr.set(searchRes);
 	}
-
-	const ANAME = "Kid A";
-
-	onMount(async () => {
-		await albumSearch(ANAME);
-		console.log($searchArr);
-	});
 </script>
 
 <div id="title">testpage.</div>
-<div>Printed {searchArr}</div>
+<div class="searchDiv">
+	<Searchbar bind:searchTerm />
+	<button id="submit" on:click={albumSearch(searchTerm)}>Search!</button>
+</div>
 <div class="cards">
 	<Albumcard ARTIST="Radiohead" ANAME="Kid A" />
 	<Albumcard ARTIST="Radiohead" ANAME="In Rainbows" />
@@ -54,5 +52,22 @@
 	.cards {
 		display: flex;
 		flex-wrap: wrap;
+	}
+
+	.searchDiv {
+		display: flex;
+	}
+
+	#submit {
+		color: #1f2937;
+		background-color: paleturquoise;
+		width: 4%;
+		border: 2px paleturquoise solid;
+		border-radius: 14px;
+		margin: 5px 27px;
+		padding: 8px;
+		font-style: italic;
+		font-size: 14px;
+		outline: none;
 	}
 </style>

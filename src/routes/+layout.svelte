@@ -1,10 +1,8 @@
 <script>
 	import Navbar from "$lib/navbar.svelte";
-	import Searchbar from "$lib/searchbar.svelte";
 </script>
 
 <Navbar />
-<Searchbar />
 <slot />
 
 <style>

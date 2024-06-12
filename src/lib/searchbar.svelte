@@ -16,7 +16,7 @@
 	#searchField {
 		background-color: #1f2937;
 		color: paleturquoise;
-		width: 16%;
+		width: 90%;
 		border: 2px paleturquoise solid;
 		border-radius: 14px;
 		margin: 5px 20px;
