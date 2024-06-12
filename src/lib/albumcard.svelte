@@ -2,7 +2,6 @@
 	import { onMount } from "svelte";
 
 	let url, desc, imgsrc, aname, artist, res;
-	export let searchArr = [];
 	export let ANAME;
 	export let ARTIST;
 
@@ -17,27 +16,8 @@
 		artist = ARTIST;
 	}
 
-	async function albumSearch(ANAME) {
-		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb";
-		const response = await fetch(
-			`http://ws.audioscrobbler.com/2.0/?method=album.search&album=${ANAME}&api_key=${API_KEY}&format=json`,
-		);
-
-		const data = await response.json();
-
-		for (let i = 0; i < 10; i++) {
-			let searchRes = [];
-			res = data.results.albummatches.album[i];
-			// searchRes.push(res);
-			searchRes.push(res.name);
-			searchRes.push(res.artist);
-			searchArr.push(searchRes);
-		}
-	}
-
 	onMount(() => {
 		getAlbumInfo(ARTIST, ANAME);
-		// albumSearch(ANAME);
 	});
 </script>
 
