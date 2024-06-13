@@ -4,7 +4,7 @@
 	import Albumcard from "$lib/albumcard.svelte";
 	import Searchbar from "$lib/searchbar.svelte";
 
-	let searchArr = writable([]);
+	let searchArr = [];
 	let searchTerm = ""; // ANAME was removed!
 	let res;
 
@@ -25,20 +25,27 @@
 			};
 			searchRes.push(term);
 		}
-		searchArr.set(searchRes);
+		searchArr = searchRes;
+		console.log(searchArr);
 	}
 </script>
 
 <div id="title">testpage.</div>
 <div class="searchDiv">
 	<Searchbar bind:searchTerm />
-	<button id="submit" on:click={albumSearch(searchTerm)}>Search!</button>
+	<button
+		id="submit"
+		on:click={() => {
+			albumSearch(searchTerm);
+			searchTerm = "";
+		}}>Search!</button
+	>
 </div>
 <div class="cards">
 	<Albumcard ARTIST="Radiohead" ANAME="Kid A" />
 	<Albumcard ARTIST="Radiohead" ANAME="In Rainbows" />
 	<Albumcard ARTIST="Kero Kero Bonito" ANAME="Bonito Generation" />
-	{#each $searchArr as item}
+	{#each searchArr as item}
 		<Albumcard ARTIST={item.artist} ANAME={item.album} />
 	{/each}
 </div>
