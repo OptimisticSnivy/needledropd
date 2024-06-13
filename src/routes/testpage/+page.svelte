@@ -5,7 +5,7 @@
 	import Searchbar from "$lib/searchbar.svelte";
 
 	let searchArr = [];
-	let searchTerm = ""; // ANAME was removed!
+	let searchTerm = ""; 
 	let res;
 
 	async function albumSearch(ANAME) {
@@ -45,9 +45,11 @@
 	<Albumcard ARTIST="Radiohead" ANAME="Kid A" />
 	<Albumcard ARTIST="Radiohead" ANAME="In Rainbows" />
 	<Albumcard ARTIST="Kero Kero Bonito" ANAME="Bonito Generation" />
-	{#each searchArr as item}
-		<Albumcard ARTIST={item.artist} ANAME={item.album} />
-	{/each}
+	{#key searchArr}																																		<!-- re-renders everytime a new searchterm is submitted! -->
+		{#each searchArr as item}
+			<Albumcard ARTIST={item.artist} ANAME={item.album} />
+		{/each}
+	{/key}
 </div>
 
 <style>
