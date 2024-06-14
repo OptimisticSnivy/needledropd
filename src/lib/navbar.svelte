@@ -3,7 +3,7 @@
 		<a href="/">Home</a>
 		<a href="/profile">Profile</a>
 		<a href="/about">About</a>
-		<a href="/testpage">*</a>
+		<a href="/searchpage">Search</a>
 	</nav>
 </div>
 

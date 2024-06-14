@@ -1,15 +1,13 @@
 <script>
-	import { onMount } from "svelte";
-	import { writable } from "svelte/store";
 	import Albumcard from "$lib/albumcard.svelte";
 	import Searchbar from "$lib/searchbar.svelte";
 
 	let searchArr = [];
-	let searchTerm = ""; 
+	let searchTerm = "";
 	let res;
 
 	async function albumSearch(ANAME) {
-		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb";
+		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb"; // replace with secret var & generate a new api_key that is not pushed, when doing so!
 		const response = await fetch(
 			`http://ws.audioscrobbler.com/2.0/?method=album.search&album=${ANAME}&api_key=${API_KEY}&format=json`,
 		);
@@ -30,7 +28,7 @@
 	}
 </script>
 
-<div id="title">testpage.</div>
+<div id="title">searchpage.</div>
 <div class="searchDiv">
 	<Searchbar bind:searchTerm />
 	<button
@@ -42,10 +40,8 @@
 	>
 </div>
 <div class="cards">
-	<Albumcard ARTIST="Radiohead" ANAME="Kid A" />
-	<Albumcard ARTIST="Radiohead" ANAME="In Rainbows" />
-	<Albumcard ARTIST="Kero Kero Bonito" ANAME="Bonito Generation" />
-	{#key searchArr}																																		<!-- re-renders everytime a new searchterm is submitted! -->
+	<!-- re-renders everytime a new searchterm is submitted! -->
+	{#key searchArr}
 		{#each searchArr as item}
 			<Albumcard ARTIST={item.artist} ANAME={item.album} />
 		{/each}
