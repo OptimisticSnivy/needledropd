@@ -2,12 +2,12 @@
 	import Albumcard from "$lib/albumcard.svelte";
 	import Searchbar from "$lib/searchbar.svelte";
 
+	let API_KEY = import.meta.env.VITE_KEY; // Secure further please!
 	let searchArr = [];
 	let searchTerm = "";
 	let res;
 
 	async function albumSearch(ANAME) {
-		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb"; // replace with secret var & generate a new api_key that is not pushed, when doing so!
 		const response = await fetch(
 			`http://ws.audioscrobbler.com/2.0/?method=album.search&album=${ANAME}&api_key=${API_KEY}&format=json`,
 		);

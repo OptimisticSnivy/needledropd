@@ -1,11 +1,12 @@
 <script>
 	import { onMount } from "svelte";
 	let url, desc, imgsrc, aname, artist, res;
+	let API_KEY = import.meta.env.VITE_KEY;
+
 	export let ANAME;
 	export let ARTIST;
 
 	async function getAlbumInfo(ARTIST, ANAME) {
-		const API_KEY = "bf0006fdbb2fe14addcc6f11a07025eb"; 	// replace with secret var
 		const response = await fetch(
 			`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${API_KEY}&artist=${ARTIST}&album=${ANAME}&format=json`,
 		);
