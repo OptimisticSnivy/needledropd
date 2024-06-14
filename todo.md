@@ -1,11 +1,11 @@
 # To-do: 
 
-[ ] - Make album pages
+- [ ]  Make album pages
 
-[ ] - Look up SSR securing of API KEYS
+- [ ]  Look up SSR securing of API KEYS
 
-[ ] - Listen/Watchlist 
+- [ ]  Listen/Watchlist 
 
-[ ] - Profile 
+- [ ]  Profile 
 
-[ ] - Make it public 
+- [ ]  Make it public 
