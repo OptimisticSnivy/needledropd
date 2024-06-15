@@ -22,11 +22,13 @@
 </script>
 
 <div class="block">
-	<img src={imgsrc} alt={aname} />
-	<div class="text">
-		<p id="aname">{aname}</p>
-		<p id="artist">{artist}</p>
-	</div>
+	<a href="/">
+		<img src={imgsrc} alt={aname} />
+		<div class="text">
+			<p id="aname">{aname}</p>
+			<p id="artist">{artist}</p>
+		</div>
+	</a>
 </div>
 
 <style>
@@ -52,5 +54,10 @@
 
 	#aname {
 		font-weight: bold;
+	}
+
+	a {
+		text-decoration: none;
+		color: paleturquoise;
 	}
 </style>

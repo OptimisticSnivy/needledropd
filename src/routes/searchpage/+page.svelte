@@ -1,4 +1,5 @@
 <script>
+	import Icon from "@iconify/svelte";
 	import Albumcard from "$lib/albumcard.svelte";
 	import Searchbar from "$lib/searchbar.svelte";
 
@@ -36,7 +37,9 @@
 		on:click={() => {
 			albumSearch(searchTerm);
 			searchTerm = "";
-		}}>Search!</button
+		}}
+	>
+		<Icon icon="mdi:search" width="14" height="14" /></button
 	>
 </div>
 <div class="cards">
@@ -61,14 +64,16 @@
 
 	.searchDiv {
 		display: flex;
+		justify-content: left;
 	}
 
 	#submit {
 		color: #1f2937;
 		background-color: paleturquoise;
-		width: 4%;
+		/* width: 4%; */
+		height: 35px;
 		border: 2px paleturquoise solid;
-		border-radius: 14px;
+		border-radius: 20px;
 		margin: 5px 27px;
 		padding: 8px;
 		font-style: italic;
