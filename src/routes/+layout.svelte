@@ -9,7 +9,7 @@
 	:global(body) {
 		background-color: #1f2937;
 		color: paleturquoise;
-		font-family: "Ubuntu";
+		font-family: "JetBrains Mono", monospace;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
