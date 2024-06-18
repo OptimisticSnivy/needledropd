@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
-	let url, desc, imgsrc, aname, artist, res;
+
+	let imgsrc, aname, artist, album, arname;
 	let API_KEY = import.meta.env.VITE_KEY;
 
 	export let ANAME;
@@ -19,10 +20,15 @@
 	onMount(() => {
 		getAlbumInfo(ARTIST, ANAME);
 	});
+
+	album = ANAME.replace(/\s/g, "+").toLowerCase();
+	arname = ARTIST.replace(/\s/g, "+").toLowerCase();
+	console.log(album);
 </script>
 
 <div class="block">
-	<a href="/">
+	<a href="/desc/{arname}/{album}/">
+		<!-- <a href="/desc/[album]/"> -->
 		<img src={imgsrc} alt={aname} />
 		<div class="text">
 			<p id="aname">{aname}</p>

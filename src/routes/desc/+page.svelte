@@ -1,8 +1,8 @@
 <script>
 </script>
 
-<slot />
-<div id="title"></div>
+<div id="title">albumname.</div>
+
 
 <style>
 	#title {
