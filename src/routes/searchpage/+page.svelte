@@ -21,7 +21,7 @@
 			let term = {
 				album: res.name,
 				artist: res.artist,
-			};
+			};search
 			searchRes.push(term);
 		}
 		searchArr = searchRes;
