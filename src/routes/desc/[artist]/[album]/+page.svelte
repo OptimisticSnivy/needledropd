@@ -41,27 +41,22 @@
 	<div id="artist">{dartist}</div>
 	<div id="aname">{dname}</div>
 </div>
+<img src={imgsrc} alt={aname} />
 <div id="info">
 	<div class="block">
-		<img src={imgsrc} alt={aname} />
 		<div class="text"></div>
 	</div>
-	<div id="infoblock">
-		<div>Published: {pub}</div>
-		<div>Genre:</div>
-		{#key tags}
-			{#each tags as item}
-				{item} ,
-			{/each}
-		{/key}
-	</div>
+	<!-- {#key tags} -->
+	<!-- 	{#each tags as item} -->
+	<!-- 		{item} , -->
+	<!-- 	{/each} -->
+	<!-- {/key} -->
 </div>
 
 <style>
 	#title {
 		margin: 30px;
-		border-bottom: solid 4px;
-		font-size: 50px;
+		font-size: 30px;
 	}
 
 	#info {
@@ -74,30 +69,18 @@
 		margin-left: 30px;
 		display: flex;
 		/* font-family: "Ubuntu"; */
-		font-weight:200;
+		font-weight: 200;
 		font-size: 20px;
 		flex-direction: column;
 		height: 300px;
 		width: 70%;
-		border: solid;
-		border-radius: 10px;
-		padding: 10px;
-	}
-
-	.block {
-		margin-left: 30px;
-		display: flex;
-		flex-direction: row;
-		height: 300px;
-		width: 300px;
-		border: solid;
-		border-radius: 10px;
 		padding: 10px;
 	}
 
 	img {
 		height: 300px;
 		width: 300px;
+		margin: 30px;
 	}
 
 	#aname {

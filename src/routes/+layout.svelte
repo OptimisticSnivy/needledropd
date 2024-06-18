@@ -7,7 +7,7 @@
 
 <style>
 	:global(body) {
-		background-color: #1f2937;
+		background-color: #12161a;
 		color: paleturquoise;
 		font-family: "JetBrains Mono", monospace;
 		display: flex;
