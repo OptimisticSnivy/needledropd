@@ -9,7 +9,7 @@
 	:global(body) {
 		background-color: #12161a;
 		color: paleturquoise;
-		font-family: "JetBrains Mono", monospace;
+		font-family: "Inconsolata", monospace;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

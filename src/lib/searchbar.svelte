@@ -19,7 +19,8 @@
 		width: 90%;
 		border: 2px paleturquoise solid;
 		border-radius: 14px;
-		margin: 5px 20px;
+		margin-left: 10px;
+		margin-top: 5px;
 		padding: 8px;
 		font-style: italic;
 		font-size: 14px;

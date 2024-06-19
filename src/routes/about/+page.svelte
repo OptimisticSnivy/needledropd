@@ -6,7 +6,7 @@
 
 <style>
 	#title {
-		margin: 20px;
+		margin-left: 170px;
 		font-size: 50px;
 	}
 </style>
