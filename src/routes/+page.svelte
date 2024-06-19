@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div id="title">needledropd.</div>
+<div id="title">home.</div>
 <div class="album_grid"></div>
 
 <style>

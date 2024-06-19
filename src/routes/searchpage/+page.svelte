@@ -16,7 +16,8 @@
 		const data = await response.json();
 
 		let searchRes = [];
-		for (let i = 0; i < 12; i++) {
+		const getAlbums = 12;
+		for (let i = 0; i < getAlbums; i++) {
 			res = data.results.albummatches.album[i];
 			let term = {
 				album: res.name,

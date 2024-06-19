@@ -20,7 +20,8 @@
 		console.log(data);
 		info = data.album;
 		let genre = [];
-		for (let i = 0; i < 5; i++) {
+		const getTags = 5;
+		for (let i = 0; i < getTags; i++) {
 			genre.push(info.tags.tag[i]["name"]);
 		}
 		tags = genre;
