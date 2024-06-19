@@ -23,7 +23,6 @@
 
 	album = ANAME.replace(/\s/g, "+").toLowerCase();
 	arname = ARTIST.replace(/\s/g, "+").toLowerCase();
-	console.log(album);
 </script>
 
 <div class="block">

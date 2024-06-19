@@ -11,3 +11,7 @@
 - [ ]  Profile 
 
 - [ ]  Make it public 
+
+# Ancillary to-do's:
+
+- [ ]  The Album cover's gradient flows into albumcard!

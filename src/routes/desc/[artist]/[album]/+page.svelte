@@ -10,14 +10,12 @@
 	const splice = $page.url.pathname.split("/");
 	artist = splice[2];
 	aname = splice[3];
-	console.log(artist, aname);
 
 	async function getAlbumInfo(ARTIST, ANAME) {
 		const response = await fetch(
 			`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${API_KEY}&artist=${ARTIST}&album=${ANAME}&format=json`,
 		);
 		const data = await response.json();
-		console.log(data);
 		info = data.album;
 		let genre = [];
 		const getTags = 5;
@@ -28,54 +26,55 @@
 		imgsrc = data.album.image[5]["#text"];
 		dname = info.name;
 		dartist = info.artist;
-		summary = info.wiki.summary;
-		pub = info.wiki.published;
 	}
 
 	onMount(() => {
 		getAlbumInfo(artist, aname);
-		console.log(genre);
 	});
 </script>
 
-<div id="title">
-	<div id="artist">{dartist}</div>
-	<div id="aname">{dname}</div>
-</div>
-<img src={imgsrc} alt={aname} />
-<div id="info">
-	<div class="block">
-		<div class="text"></div>
+<div id="album">
+	<div id="text">
+		<div id="title">
+			<div id="artist">{dartist}</div>
+			<div id="aname">{dname}</div>
+		</div>
+		<div id="info">
+			<ul>
+				<li>Published:2004</li>
+				<li>Length:1.25 Hours</li>
+				<li>Genre:Rock, Alternative Rock, Art Pop, Hip-Hop, Electronic</li>
+			</ul>
+		</div>
 	</div>
-	<!-- {#key tags} -->
-	<!-- 	{#each tags as item} -->
-	<!-- 		{item} , -->
-	<!-- 	{/each} -->
-	<!-- {/key} -->
+	<img src={imgsrc} alt={aname} />
 </div>
 
 <style>
-	#title {
-		margin: 30px;
+	#album {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		margin-top: 30px;
+		margin-bottom: 50px;
+		min-width: 70%;
+	}
+
+	#text {
 		font-size: 30px;
+		display: flex;
+		flex-direction: column;
+		margin: 30px;
+		margin-top: 100px;
+		flex-grow: 1;
 	}
 
 	#info {
 		margin-left: 30px;
 		display: flex;
 		flex-direction: row;
-	}
-
-	#infoblock {
-		margin-left: 30px;
-		display: flex;
-		/* font-family: "Ubuntu"; */
-		font-weight: 200;
-		font-size: 20px;
-		flex-direction: column;
-		height: 300px;
-		width: 70%;
-		padding: 10px;
+		margin: 0;
+		margin-top: 10px;
 	}
 
 	img {
@@ -86,5 +85,15 @@
 
 	#aname {
 		font-weight: bold;
+	}
+
+	#info {
+		font-size: 22px;
+	}
+
+	ul {
+		list-style-type: none; /* Change to disc, circle, square, etc. */
+		margin: 0;
+		padding: 0;
 	}
 </style>

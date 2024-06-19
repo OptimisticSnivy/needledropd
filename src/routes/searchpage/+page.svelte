@@ -26,7 +26,6 @@
 			searchRes.push(term);
 		}
 		searchArr = searchRes;
-		console.log(searchArr);
 	}
 </script>
 
@@ -67,20 +66,21 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		margin: 40px;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		min-width: 75%;
 	}
 
 	.searchDiv {
 		display: flex;
 		flex-direction: row;
 		justify-content: right;
-		margin-right: 100px;
 	}
 
 	#title {
 		flex-grow: 1;
-		font-size: 35px;
-		margin-left: 100px;
+		font-size: 30px;
 	}
 
 	#submit {
