@@ -3,8 +3,7 @@
 	import { onMount } from "svelte";
 
 	let tags = [];
-	let genre = [];
-	let artist, aname, info, imgsrc, dname, dartist, summary, pub;
+	let artist, aname, info, imgsrc, dname, dartist, tracks, pub, len, tlen;
 	let API_KEY = import.meta.env.VITE_KEY;
 
 	const splice = $page.url.pathname.split("/");
@@ -17,15 +16,27 @@
 		);
 		const data = await response.json();
 		info = data.album;
-		let genre = [];
-		const getTags = 5;
-		for (let i = 0; i < getTags; i++) {
-			genre.push(info.tags.tag[i]["name"]);
-		}
-		tags = genre;
 		imgsrc = data.album.image[5]["#text"];
 		dname = info.name;
 		dartist = info.artist;
+		pub = info.wiki.published;
+		tracks = info.tracks.track;
+		len = tracks.length;
+
+		let genre = [];
+		let dur = 0;
+		const getTags = 5;
+
+		for (let j = 0; j < len; j++) {
+			dur = dur + tracks[j].duration;
+		}
+
+		for (let i = 0; i < getTags; i++) {
+			genre.push(info.tags.tag[i]["name"]);
+		}
+
+		tags = genre;
+		tlen = Math.floor(dur / 60);
 	}
 
 	onMount(() => {
@@ -41,14 +52,15 @@
 		</div>
 		<div id="info">
 			<ul>
-				<li>Published:2004</li>
-				<li>Length:1.25 Hours</li>
-				<li>Genre:Rock, Alternative Rock, Art Pop, Hip-Hop, Electronic</li>
+				<li>Published: {pub}</li>
+				<li>Length: {len} tracks, {tlen} minutes</li>
+				<li>Genre: {tags}</li>
 			</ul>
 		</div>
 	</div>
 	<img src={imgsrc} alt={aname} />
 </div>
+<!-- <div id="t2">Reviews</div> -->
 
 <style>
 	#album {
@@ -95,5 +107,19 @@
 		list-style-type: none; /* Change to disc, circle, square, etc. */
 		margin: 0;
 		padding: 0;
+	}
+	
+	#t2{
+		display: flex;
+		font-size: 25px;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		width: 75%;
+	}
+
+	#text {
+		flex-grow: 1;
+		text-align: left;
 	}
 </style>

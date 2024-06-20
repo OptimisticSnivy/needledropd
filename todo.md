@@ -14,4 +14,6 @@
 
 # Ancillary to-do's:
 
-- [ ]  The Album cover's gradient flows into albumcard!
+- [ ]  The Album cover's gradient flows into albumcard and albumpage titles!
+
+- [ ]  Published dates don't match release dates for older albums, becuase of Lastfm's API, fix them.
