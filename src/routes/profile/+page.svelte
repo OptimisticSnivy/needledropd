@@ -2,11 +2,22 @@
 </script>
 
 <slot />
-<div id="title">profile.</div>
+<div id="title">
+	<div id="text">profile.</div>
+</div>
 
 <style>
 	#title {
-		margin-left: 170px;
-		font-size: 50px;
+		display: flex;
+		font-size: 35px;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		width: 75%;
+	}
+
+	#text {
+		flex-grow: 1;
+		text-align: left;
 	}
 </style>

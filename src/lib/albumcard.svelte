@@ -41,7 +41,7 @@
 		margin: 30px;
 		/* height: 250px; */
 		width: 200px;
-		border: thin solid;
+		border: solid;
 		border-radius: 10px;
 		padding: 10px;
 	}

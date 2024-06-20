@@ -1,16 +1,22 @@
 <script>
 </script>
 
-<div id="title">home.</div>
-<div class="album_grid"></div>
+<div id="title">
+	<div id="text">home.</div>
+</div>
 
 <style>
 	#title {
-		margin: 20px;
-		font-size: 50px;
+		display: flex;
+		font-size: 35px;
+		margin: auto;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		width: 75%;
 	}
 
-	.album_grid {
-		display: grid;
+	#text {
+		flex-grow: 1;
+		text-align: left;
 	}
 </style>
