@@ -2,6 +2,7 @@
 	import Icon from "@iconify/svelte";
 	import Albumcard from "$lib/albumcard.svelte";
 	import Searchbar from "$lib/searchbar.svelte";
+	import { onMount } from "svelte";
 
 	let API_KEY = import.meta.env.VITE_KEY; // Secure further please!
 	let searchArr = [];
@@ -26,8 +27,18 @@
 			searchRes.push(term);
 		}
 		searchArr = searchRes;
+		sessionStorage.setItem("key", searchTerm);
 	}
+
+	onMount(() => {
+		const searchKey = sessionStorage.getItem("key");
+		if (searchKey) {
+			albumSearch(searchKey);
+		}
+	});
 </script>
+
+<!-- albumSearch(sessionStorage.getItem("key")); -->
 
 <div id="searcbar">
 	<div id="title">searchpage.</div>
@@ -37,13 +48,14 @@
 			id="submit"
 			on:click={() => {
 				albumSearch(searchTerm);
-				searchTerm = "";
+				// searchTerm = "";
 			}}
 		>
 			<Icon icon="mdi:search" width="14" height="14" /></button
 		>
 	</div>
 </div>
+
 <div class="cards">
 	<!-- re-renders everytime a new searchterm is submitted! -->
 	{#key searchArr}
