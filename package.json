@@ -17,6 +17,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"pocketbase": "^0.21.3",
 		"supabase": "^1.178.2"
 	}
 }

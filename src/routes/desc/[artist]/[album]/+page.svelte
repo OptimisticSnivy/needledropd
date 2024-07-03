@@ -60,7 +60,8 @@
 	</div>
 	<img src={imgsrc} alt={aname} />
 </div>
-<!-- <div id="t2">Reviews</div> -->
+<div id="t2">Reviews</div>
+<div>{data.resultList}</div>
 
 <style>
 	#album {
@@ -108,8 +109,8 @@
 		margin: 0;
 		padding: 0;
 	}
-	
-	#t2{
+
+	#t2 {
 		display: flex;
 		font-size: 25px;
 		margin: auto;
