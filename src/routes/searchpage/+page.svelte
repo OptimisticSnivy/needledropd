@@ -36,6 +36,13 @@
 			albumSearch(searchKey);
 		}
 	});
+
+	function handleEnter(e) {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+			albumSearch(searchTerm);
+		}
+	}
 </script>
 
 <!-- albumSearch(sessionStorage.getItem("key")); -->
@@ -43,16 +50,12 @@
 <div id="searcbar">
 	<div id="title">searchpage.</div>
 	<div class="searchDiv">
-		<Searchbar bind:searchTerm />
-		<button
-			id="submit"
-			on:click={() => {
-				albumSearch(searchTerm);
-				// searchTerm = "";
-			}}
-		>
-			<Icon icon="mdi:search" width="14" height="14" /></button
-		>
+		<!-- Just Works  -->
+		<div on:keydown={handleEnter}>
+			<Searchbar bind:searchTerm />
+		</div>
+		<button id="submit" on:click={albumSearch(searchTerm)}>
+			<Icon icon="mdi:search" width="14" height="14" /></button>
 	</div>
 </div>
 

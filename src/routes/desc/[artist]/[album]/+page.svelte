@@ -61,7 +61,6 @@
 	<img src={imgsrc} alt={aname} />
 </div>
 <div id="t2">Reviews</div>
-<div>{data.resultList}</div>
 
 <style>
 	#album {
