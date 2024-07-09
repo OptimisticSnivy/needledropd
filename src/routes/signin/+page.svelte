@@ -5,16 +5,22 @@
 
 	let username = "";
 	let password = "";
+	let passwordConfirm = "";
+	let name = "";
 
 	async function signin() {
 		const data = {
 			username,
 			password,
-			passwordConfirm: password,
-			name: "test1",
+			name,
+			passwordConfirm,
 		};
-		const record = await pb.collection("users").create(data);
-		await login();
+		if (password === passwordConfirm) {
+			const record = await pb.collection("users").create(data);
+			await login();
+		} else {
+			console.log("Passwords don't match");
+		}
 	}
 
 	async function login() {
@@ -32,20 +38,36 @@
 		<div id="lg">
 			<input
 				id="lgfield0"
-				placeholder="username"
+				placeholder="Your Name"
+				type="text"
+				bind:value={name}
+				on:input
+			/>
+			<input
+				id="lgfield0"
+				placeholder="Username"
 				type="text"
 				bind:value={username}
 				on:input
 			/>
 			<input
 				id="lgfield0"
-				placeholder="password"
+				placeholder="Password"
 				type="password"
 				bind:value={password}
 				on:input
 			/>
+
+			<input
+				id="lgfield0"
+				placeholder="Confirm Password"
+				type="password"
+				bind:value={passwordConfirm}
+				on:input
+			/>
 		</div>
-		<button id="signin" on:click={signin}>Sign In</button>
+		<button id="in" on:click={signin}>Sign In</button>
+		<!-- <button id="in" on:click={login}>Log In</button> -->
 	</form>
 </div>
 
@@ -81,7 +103,7 @@
 		outline: none;
 	}
 
-	#signin {
+	#in {
 		color: #1f2937;
 		background-color: paleturquoise;
 		/* width: 4%; */
@@ -101,7 +123,14 @@
 		width: 75%;
 	}
 
-	input:-webkit-autofill {
-		-webkit-box-shadow: paleturquoise 1000px #1f2937 inset !important;
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		transition: #1f2937 5000s ease-in-out 0s;
+	}
+
+	input:autofill {
+		background: #1f2937;
 	}
 </style>
