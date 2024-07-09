@@ -6,6 +6,8 @@
 	<div id="text">profile.</div>
 </div>
 
+
+
 <style>
 	#title {
 		display: flex;
