@@ -3,6 +3,7 @@
 
 	const pb = new PocketBase("http://127.0.0.1:8090");
 
+	let record;
 	let username = "";
 	let password = "";
 	let passwordConfirm = "";
@@ -16,7 +17,8 @@
 			passwordConfirm,
 		};
 		if (password === passwordConfirm) {
-			const record = await pb.collection("users").create(data);
+			record = await pb.collection("users").create(data);
+			console.log(record);
 			await login();
 		} else {
 			console.log("Passwords don't match");
@@ -32,44 +34,49 @@
 <div id="title">
 	<div id="text">sign in.</div>
 </div>
-<div id="field">
-	<form on:submit|preventDefault>
-		<label for="Username"></label>
-		<div id="lg">
-			<input
-				id="lgfield0"
-				placeholder="Your Name"
-				type="text"
-				bind:value={name}
-				on:input
-			/>
-			<input
-				id="lgfield0"
-				placeholder="Username"
-				type="text"
-				bind:value={username}
-				on:input
-			/>
-			<input
-				id="lgfield0"
-				placeholder="Password"
-				type="password"
-				bind:value={password}
-				on:input
-			/>
 
-			<input
-				id="lgfield0"
-				placeholder="Confirm Password"
-				type="password"
-				bind:value={passwordConfirm}
-				on:input
-			/>
-		</div>
-		<button id="in" on:click={signin}>Sign In</button>
-		<!-- <button id="in" on:click={login}>Log In</button> -->
-	</form>
-</div>
+{#if record}
+	<div>You are logged in!</div>
+{:else}
+	<div id="field">
+		<form on:submit|preventDefault>
+			<label for="Username"></label>
+			<div id="lg">
+				<input
+					id="lgfield0"
+					placeholder="Your Name"
+					type="text"
+					bind:value={name}
+					on:input
+				/>
+				<input
+					id="lgfield0"
+					placeholder="Username"
+					type="text"
+					bind:value={username}
+					on:input
+				/>
+				<input
+					id="lgfield0"
+					placeholder="Password"
+					type="password"
+					bind:value={password}
+					on:input
+				/>
+
+				<input
+					id="lgfield0"
+					placeholder="Confirm Password"
+					type="password"
+					bind:value={passwordConfirm}
+					on:input
+				/>
+			</div>
+			<button id="in" on:click={signin}>Sign In</button>
+			<!-- <button id="in" on:click={login}>Log In</button> -->
+		</form>
+	</div>
+{/if}
 
 <style>
 	#title {
