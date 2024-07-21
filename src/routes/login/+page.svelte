@@ -3,53 +3,30 @@
 
 	const pb = new PocketBase("http://127.0.0.1:8090");
 
-	let record;
 	let logged_uname;
+	let store;
 	let username = "";
 	let password = "";
-	let passwordConfirm = "";
-	let name = "";
-
-	async function signin() {
-		const data = {
-			username,
-			password,
-			name,
-			passwordConfirm,
-		};
-		if (password === passwordConfirm) {
-			record = await pb.collection("users").create(data);
-			await login();
-		} else {
-			console.log("Passwords don't match");
-		}
-	}
 
 	async function login() {
 		await pb.collection("users").authWithPassword(username, password);
+		store = pb.authStore.isValid;
 		logged_uname = pb.authStore.model.username;
 	}
 </script>
 
 <slot />
 <div id="title">
-	<div id="text">sign in.</div>
+	<div id="text">login.</div>
 </div>
 
-{#if logged_uname}
-	<div>You are logged in as {logged_uname}</div>
+{#if store}
+	<div>You are now logged in as {logged_uname}!</div>
 {:else}
 	<div id="field">
 		<form on:submit|preventDefault>
 			<label for="Username"></label>
 			<div id="lg">
-				<input
-					id="lgfield0"
-					placeholder="Your Name"
-					type="text"
-					bind:value={name}
-					on:input
-				/>
 				<input
 					id="lgfield0"
 					placeholder="Username"
@@ -64,16 +41,8 @@
 					bind:value={password}
 					on:input
 				/>
-
-				<input
-					id="lgfield0"
-					placeholder="Confirm Password"
-					type="password"
-					bind:value={passwordConfirm}
-					on:input
-				/>
 			</div>
-			<button id="in" on:click={signin}>Sign In</button>
+			<button id="in" on:click={login}>Log In</button>
 			<!-- <button id="in" on:click={login}>Log In</button> -->
 		</form>
 	</div>
