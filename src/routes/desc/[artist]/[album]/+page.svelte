@@ -60,7 +60,9 @@
 	</div>
 	<img src={imgsrc} alt={aname} />
 </div>
-<div id="t2">Reviews</div>
+<div id="t2">
+	<div>Reviews</div>
+</div>
 
 <style>
 	#album {
@@ -111,11 +113,14 @@
 
 	#t2 {
 		display: flex;
+		flex-direction: column;
 		font-size: 25px;
 		margin: auto;
 		margin-top: 50px;
 		margin-bottom: 50px;
-		width: 75%;
+		padding: 10px;
+		width: 50%;
+		border-bottom: 1px solid paleturquoise;
 	}
 
 	#text {
