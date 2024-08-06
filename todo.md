@@ -12,6 +12,10 @@
 
 - [ ]  Make it public 
 
+- [ ]  Make a recommendations for more albums based of the backlog+favourite albums list, look up algorithms you can make out by yourselves, instead of looking for pre-existing solutions or libraries.
+
+- [ ]  Tracklist + Tracklist rating?
+
 # Ancillary to-do's:
 
 - [ ]  The Album cover's gradient flows into albumcard and albumpage titles!
