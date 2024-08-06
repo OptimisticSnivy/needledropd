@@ -10,7 +10,8 @@
 
 	async function login() {
 		await pb.collection("users").authWithPassword(username, password);
-		store = pb.authStore.isValid;
+		store = pb.authStore.token;
+		console.log(store);
 		logged_uname = pb.authStore.model.username;
 	}
 </script>

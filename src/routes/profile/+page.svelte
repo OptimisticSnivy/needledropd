@@ -1,12 +1,16 @@
 <script>
+	import { currentUser } from "$lib/pocketbase";
 </script>
 
 <slot />
 <div id="title">
 	<div id="text">profile.</div>
+	<div></div>
 </div>
 
-
+{#if $currentUser}
+	<p>Signed in as {$currentUser.username}</p>
+{/if}
 
 <style>
 	#title {
