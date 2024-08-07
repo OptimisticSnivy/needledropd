@@ -9,7 +9,7 @@
 </div>
 
 {#if $currentUser}
-	<p>Signed in as {$currentUser.username}</p>
+	<p>Logged in as {$currentUser.username}</p>
 {/if}
 
 <style>

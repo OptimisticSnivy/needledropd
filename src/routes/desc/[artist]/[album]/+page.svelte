@@ -1,8 +1,11 @@
 <script>
 	import { page } from "$app/stores";
+	import { currentUser } from "$lib/pocketbase";
 	import { onMount } from "svelte";
+	import Modal from "$lib/modal.svelte";
 
 	let tags = [];
+	let showModal = false;
 	let artist, aname, info, imgsrc, dname, dartist, tracks, pub, len, tlen;
 	let API_KEY = import.meta.env.VITE_KEY;
 
@@ -58,13 +61,36 @@
 			</ul>
 		</div>
 	</div>
-	<img src={imgsrc} alt={aname} />
+	<div class="buttons">
+		<img src={imgsrc} alt={aname} />
+		{#if $currentUser}
+			<button id="submit" on:click={() => (showModal = true)}>Review</button>
+		{/if}
+	</div>
 </div>
 <div id="t2">
-	<div>Reviews</div>
+	<div>Your Reviews</div>
 </div>
 
+<Modal bind:showModal>
+	<h2 slot="header">Post your review!</h2>
+	<textarea name="post" id="post"></textarea>
+</Modal>
+
 <style>
+	Modal {
+		height: 300px;
+		width: 300px;
+	}
+
+	#post {
+		background-color: #1f2937;
+		color: paleturquoise;
+		outline: none;
+		height: 300px;
+		width: 300px;
+	}
+
 	#album {
 		display: flex;
 		flex-wrap: wrap;
@@ -119,12 +145,30 @@
 		margin-top: 50px;
 		margin-bottom: 50px;
 		padding: 10px;
-		width: 50%;
+		width: 55%;
 		border-bottom: 1px solid paleturquoise;
 	}
 
 	#text {
 		flex-grow: 1;
 		text-align: left;
+	}
+
+	#submit {
+		color: #1f2937;
+		background-color: paleturquoise;
+		justify-content: center;
+		min-width: 70%;
+		height: 35px;
+		border: 2px paleturquoise solid;
+		border-radius: 20px;
+		font-style: italic;
+		font-size: 14px;
+		outline: none;
+	}
+
+	.buttons {
+		display: flex;
+		flex-direction: column;
 	}
 </style>

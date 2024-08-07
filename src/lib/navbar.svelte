@@ -9,8 +9,8 @@
 			><Icon icon="material-symbols-light:home" width="28" height="28" /></a
 		>
 		<a href="/searchpage"><Icon icon="mdi:search" width="28" height="28" /></a>
-		<a href="/profile"><Icon icon="mdi:user" width="28" height="28" /></a>
 		<a href="/about"><Icon icon="mdi:about" width="28" height="28" /></a>
+		<a href="/profile"><Icon icon="mdi:user" width="28" height="28" /></a>
 	</nav>
 </div>
 

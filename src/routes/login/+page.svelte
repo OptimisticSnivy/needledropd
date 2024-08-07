@@ -1,18 +1,17 @@
 <script>
+	import { goto } from "$app/navigation";
+	import { browser } from "$app/environment";
+	import { currentUser } from "$lib/pocketbase";
 	import PocketBase from "pocketbase";
 
 	const pb = new PocketBase("http://127.0.0.1:8090");
 
-	let logged_uname;
-	let store;
 	let username = "";
 	let password = "";
 
 	async function login() {
 		await pb.collection("users").authWithPassword(username, password);
-		store = pb.authStore.token;
-		console.log(store);
-		logged_uname = pb.authStore.model.username;
+		window.location.href = "/redirectpage";
 	}
 </script>
 
@@ -21,8 +20,10 @@
 	<div id="text">login.</div>
 </div>
 
-{#if store}
-	<div>You are now logged in as {logged_uname}!</div>
+{#if $currentUser}
+	<div id="field">
+		You are now logged in as {$currentUser.username}!
+	</div>
 {:else}
 	<div id="field">
 		<form on:submit|preventDefault>
@@ -98,6 +99,7 @@
 
 	#field {
 		margin: auto;
+		font-size: 22px;
 		width: 75%;
 	}
 
