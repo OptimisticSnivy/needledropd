@@ -171,4 +171,16 @@
 		display: flex;
 		flex-direction: column;
 	}
+
+	textarea {
+		border: none;
+		overflow: auto;
+		outline: none;
+
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		background-color: transparent;
+		resize: none; /*remove the resize handle on the bottom right*/
+	}
 </style>

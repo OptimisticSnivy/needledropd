@@ -55,7 +55,8 @@
 			<Searchbar bind:searchTerm />
 		</div>
 		<button id="submit" on:click={albumSearch(searchTerm)}>
-			<Icon icon="mdi:search" width="14" height="14" /></button>
+			<Icon icon="mdi:search" width="14" height="14" /></button
+		>
 	</div>
 </div>
 
