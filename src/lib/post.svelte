@@ -1,16 +1,24 @@
 <script>
-	import { onMount } from "svelte";
+	export let username;
+	export let createdAt;
+	export let text;
 </script>
 
-<div class="block"></div>
+<div class="block">
+	<div>{username}</div>
+	<div>{createdAt}</div>
+	<div>{text}</div>
+</div>
 
 <style>
 	.block {
-		margin: 30px;
-		/* height: 250px; */
-		width: 200px;
-		border: solid;
-		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		font-size: 18px;
+		margin: auto;
+		border-bottom: 1px solid paleturquoise;
+		height: auto;
+		width: 60%;
 		padding: 10px;
 	}
 </style>

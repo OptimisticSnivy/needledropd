@@ -20,6 +20,8 @@
 
 - [ ] Auth on login page, fix w/ pocketbase.ts
 
+- [ ] Draft reviews! (button in the modal, directly?)
+
 # Ancillary to-do's:
 
 - [ ] The Album cover's gradient flows into albumcard and albumpage titles!

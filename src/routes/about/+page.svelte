@@ -1,10 +1,12 @@
 <script>
+	import Post from "../../lib/post.svelte";
 </script>
 
 <slot />
 <div id="title">
 	<div id="text">about.</div>
 </div>
+<Post />
 
 <style>
 	#title {

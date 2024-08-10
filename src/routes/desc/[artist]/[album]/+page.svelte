@@ -3,6 +3,7 @@
 	import { currentUser } from "$lib/pocketbase";
 	import { onMount } from "svelte";
 	import Modal from "$lib/modal.svelte";
+	import Post from "$lib/post.svelte";
 
 	let tags = [];
 	let showModal = false;
@@ -72,23 +73,20 @@
 	<div>Your Reviews</div>
 </div>
 
+<Post username={$currentUser.username} />
+
 <Modal bind:showModal>
 	<h2 slot="header">Post your review!</h2>
 	<textarea name="post" id="post"></textarea>
 </Modal>
 
 <style>
-	Modal {
-		height: 300px;
-		width: 300px;
-	}
-
 	#post {
 		background-color: #1f2937;
 		color: paleturquoise;
 		outline: none;
-		height: 300px;
-		width: 300px;
+		height: 500px;
+		width: 500px;
 	}
 
 	#album {
@@ -176,6 +174,7 @@
 		border: none;
 		overflow: auto;
 		outline: none;
+		font-size: 15px;
 
 		-webkit-box-shadow: none;
 		-moz-box-shadow: none;
