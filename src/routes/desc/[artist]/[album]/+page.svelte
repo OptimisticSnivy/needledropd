@@ -73,8 +73,9 @@
 	<div>Your Reviews</div>
 </div>
 
-<Post username={$currentUser.username} />
-
+{#if $currentUser}
+	<Post username={$currentUser.username} />
+{/if}
 <Modal bind:showModal>
 	<h2 slot="header">Post your review!</h2>
 	<textarea name="post" id="post"></textarea>
