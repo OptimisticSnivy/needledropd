@@ -1,12 +1,12 @@
 <script>
 	export let username;
-	export let createdAt;
+	// export let createdAt;
 	export let text;
 </script>
 
 <div class="block">
 	<div>{username}</div>
-	<div>{createdAt}</div>
+	<!-- <div>{createdAt}</div> -->
 	<div>{text}</div>
 </div>
 

@@ -4,6 +4,11 @@
 	import { onMount } from "svelte";
 	import Modal from "$lib/modal.svelte";
 	import Post from "$lib/post.svelte";
+	import PocketBase from "pocketbase";
+
+	const pb = new PocketBase("http://127.0.0.1:8090");
+
+	let records, rtext;
 
 	let tags = [];
 	let showModal = false;
@@ -43,8 +48,23 @@
 		tlen = Math.floor(dur / 60);
 	}
 
+	async function getPosts() {
+		records = await pb.collection("posts").getFullList({
+			sort: "-created",
+		});
+		for (let index = 0; index < records.length; index++) {
+			console.log(records[index].userId);
+			console.log($currentUser.id);
+			if (records[index].userId === $currentUser.id) {
+				rtext = records[index].review;
+			}
+		}
+		console.log(records[0].review);
+	}
+
 	onMount(() => {
 		getAlbumInfo(artist, aname);
+		getPosts();
 	});
 </script>
 
@@ -74,7 +94,7 @@
 </div>
 
 {#if $currentUser}
-	<Post username={$currentUser.username} />
+	<Post username={$currentUser.username} text={rtext} />
 {/if}
 <Modal bind:showModal>
 	<h2 slot="header">Post your review!</h2>
