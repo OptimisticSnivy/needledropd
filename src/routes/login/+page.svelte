@@ -11,7 +11,12 @@
 
 	async function login() {
 		await pb.collection("users").authWithPassword(username, password);
-		window.location.href = "/redirectpage";
+		window.location.href = "/login";
+	}
+
+	async function logout() {
+		pb.authStore.clear();
+		window.location.href = "/login";
 	}
 </script>
 
@@ -22,7 +27,10 @@
 
 {#if $currentUser}
 	<div id="field">
-		You are now logged in as {$currentUser.username}!
+		<p>
+			You are now logged in as {$currentUser.username}!
+		</p>
+		<button id="in" on:click={logout}>Log Out</button>
 	</div>
 {:else}
 	<div id="field">

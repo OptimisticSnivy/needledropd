@@ -29,6 +29,7 @@
 		await pb.collection("users").authWithPassword(username, password);
 		logged_uname = pb.authStore.model.username;
 	}
+
 </script>
 
 <slot />
