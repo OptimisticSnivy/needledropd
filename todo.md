@@ -22,7 +22,10 @@
 
 - [ ] Draft reviews! (button in the modal, directly?)
 
+
 # Ancillary to-do's:
+
+- [ ] Backdrop image with a gradient for the album page (like in letterboxd)
 
 - [ ] The Album cover's gradient flows into albumcard and albumpage titles!
 
